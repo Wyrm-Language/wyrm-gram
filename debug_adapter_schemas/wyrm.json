@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["program"],
+  "properties": {
+    "request": {
+      "type": "string",
+      "enum": ["launch"],
+      "default": "launch",
+      "description": "wyrm-dap supports launching a script only."
+    },
+    "program": {
+      "type": "string",
+      "description": "Path to the .wy script to debug.",
+      "default": "$GRAM_FILE"
+    },
+    "args": {
+      "type": "array",
+      "items": { "type": "string" },
+      "default": [],
+      "description": "Command-line arguments passed to the script."
+    },
+    "stopOnEntry": {
+      "type": "boolean",
+      "default": false,
+      "description": "Pause before the first statement runs."
+    },
+    "cwd": {
+      "type": "string",
+      "description": "Working directory for the debuggee."
+    }
+  }
+}

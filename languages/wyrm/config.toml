@@ -1,0 +1,21 @@
+name = "Wyrm"
+grammar = "wyrm"
+path_suffixes = ["wy", "wyrm"]
+line_comments = ["# "]
+autoclose_before = ";:.,=}])>"
+brackets = [
+  { start = "{", end = "}", close = true, newline = true },
+  { start = "[", end = "]", close = true, newline = true },
+  { start = "(", end = ")", close = true, newline = true },
+  { start = "\"", end = "\"", close = true, newline = false, not_in = ["string", "comment"] },
+]
+# `$` is an identifier character ($ast, reg$0), so double-click and word
+# motions should treat it as part of a word.
+word_characters = ["$"]
+tab_size = 4
+hard_tabs = false
+# The offside rule: a line ending in `:` opens a block.
+increase_indent_pattern = ":\\s*(#.*)?$"
+decrease_indent_patterns = [
+  { pattern = "^\\s*(elif|else)\\b.*", valid_after = ["if", "elif", "for"] },
+]

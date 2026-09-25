@@ -1,0 +1,4 @@
+/target/
+*.wasm
+# Gram clones and builds the pinned grammar here during Install Dev Extension
+/grammars/
